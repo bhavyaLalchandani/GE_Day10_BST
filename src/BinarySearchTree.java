@@ -18,9 +18,19 @@ public class BinarySearchTree {
         return current;
     }
 
+    public int size() {
+        return sizeRecursive(root);
+    }
+
+    private int sizeRecursive(Node current) {
+        if (current == null) {
+            return 0;
+        }
+        return 1 + sizeRecursive(current.left) + sizeRecursive(current.right);
+    }
+
     public void inorderTraversal() {
         inorderTraversalRecursive(root);
-        System.out.println();
     }
 
     private void inorderTraversalRecursive(Node node) {
