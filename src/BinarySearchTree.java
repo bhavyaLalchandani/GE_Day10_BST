@@ -9,12 +9,13 @@ public class BinarySearchTree {
         if (current == null) {
             return new Node(data);
         }
+
         if (data < current.data) {
             current.left = addRecursive(current.left, data);
-        }
-        else if (data > current.data) {
+        } else if (data > current.data) {
             current.right = addRecursive(current.right, data);
         }
+
         return current;
     }
 
@@ -38,6 +39,23 @@ public class BinarySearchTree {
             inorderTraversalRecursive(node.left);
             System.out.print(node.data + " ");
             inorderTraversalRecursive(node.right);
+        }
+    }
+    public String search(int data) {
+        if(searchRecursive(root, data)) return "Found";
+        else return "Not Found";
+    }
+    private boolean searchRecursive(Node current, int data) {
+        if (current == null) {
+            return false;
+        }
+        if (data == current.data) {
+            return true;
+        }
+        if (data < current.data) {
+            return searchRecursive(current.left, data);
+        } else {
+            return searchRecursive(current.right, data);
         }
     }
 }

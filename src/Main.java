@@ -12,5 +12,8 @@ public class Main {
         tree.inorderTraversal();
 
         System.out.println("\nSize of the tree: " + tree.size());
+
+        // Searching for an element
+        System.out.println("Is 63 Found in the Tree: " + tree.search(63));
     }
 }
